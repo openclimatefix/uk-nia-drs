@@ -35,5 +35,8 @@ data['start_datetime_utc'] = data['end_datetime_utc'] - pd.Timedelta(minutes=30)
 # drop column
 data.drop(columns=['gsp_id'], inplace=True)
 
+# order the columns
+data = data[['start_datetime_utc', 'end_datetime_utc', 'generation_mw', 'capacity_mwp', 'installedcapacity_mwp']]
+
 # save to csv
 data.to_csv('pvlive_2016_2022.csv', index=False)
