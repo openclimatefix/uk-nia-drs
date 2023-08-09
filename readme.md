@@ -1,8 +1,9 @@
 # DRS NIA project
 
-The idea of this project is to prove Solar forecast to the DRS (Dynamic Reserve Service) NIA project.
+The idea of this project is to prove Solar forecast to the DRS (Dynamic Reserve Settings) NIA project.
+More info [here](https://www.smithinst.co.uk/insights/national-grid-eso-and-smith-institute-begin-pioneering-drs-project/)
 
-First OCF will proveide PVlive data, and secondly we will provide OCF Forecasts
+First OCF will provide PVlive data, and secondly we will provide OCF Forecasts
 
 **PVLive** with the following fields:
 
