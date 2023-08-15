@@ -22,7 +22,7 @@ import plotly.graph_objs as go
 
 # load data
 print("Loading Forecast data")
-data = pd.read_csv("data/full_predictions.csv")
+data = pd.read_csv("data/full_predictions_cross_validation_v2.csv")
 
 # join with pvlive capacity data
 print("Loading PVLive data")
@@ -55,10 +55,10 @@ data_stack = pd.melt(data, id_vars=["Init Time", "generation_mw"])
 data_stack = data_stack.sort_values(by=["Init Time", "variable"])
 
 # for plotting
-horizon = 36
-d = data_stack[data_stack['variable'] == horizon]
-mae = (d['generation_mw'] - d['value'].shift(horizon*2)).abs().mean()
-print(f'MAE: {mae:.2f} MW for {horizon}')
+for horizon in [0, 1, 2, 4, 8, 12, 24, 36]:
+    d = data_stack[data_stack['variable'] == horizon]
+    mae = (d['generation_mw'] - d['value'].shift(horizon*2)).abs().mean()
+    print(f'MAE: {mae:.2f} MW for {horizon}')
 
 go.Figure(data=[go.Scatter(x=d['Init Time'], y=d['generation_mw'], name='generation_mw'),
                 go.Scatter(x=d['Init Time'], y=d['value'].shift(horizon*2), name='value')]).show()
