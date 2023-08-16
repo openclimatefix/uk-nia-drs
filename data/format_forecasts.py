@@ -67,6 +67,7 @@ go.Figure(data=[go.Scatter(x=d['Init Time'], y=d['generation_mw'], name='generat
 # format rows
 print('Formating rows')
 data_stack["variable"] = data_stack["variable"].astype(int)
+data_stack.drop(columns=["generation_mw"], inplace=True)
 data_stack.rename(
     columns={"Init Time": "forecasting_creation_datetime_utc", "value": "generation_mw"},
     inplace=True,
@@ -78,7 +79,7 @@ data_stack["start_datetime_utc"] = data_stack[
 ] + pd.to_timedelta(data_stack["variable"], "h")
 
 data_stack["end_datetime_utc"] = data_stack["start_datetime_utc"] + pd.Timedelta(minutes=30)
-data_stack.drop(columns=["variable","generation_mw"], inplace=True)
+data_stack.drop(columns=["variable"], inplace=True)
 
 print('Save to csv')
-data_stack.to_csv("data/formatted_forecasts.csv.gz", index=False, compression='gzip')
+data_stack.to_csv("data/formatted_forecasts_v2.csv.gz", index=False, compression='gzip')
