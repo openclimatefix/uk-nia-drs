@@ -14,13 +14,5 @@ This was run using cross validation. Dates are from `2017-01-01` to `2022-01-01`
 - `formatted_forecasts_cross_validation_v2.csv` was sent on 2023-08-16. 
 - `formatted_forecasts_v2.csv` was sent on 2023-08-30. 
 
-## file format
-
-The file format is a csv file: 
-`forecast_v={v_id}__model_name={model_name}__model_version={model_version}__start_date={start_date}__end_date={end_date}.csv`
-
-where 
-- forecast_v: int, fore forecast version
-- model name: string, the ml model used e.e.g national_xg
-- model version: string, the ml model version e.g. 0.0.1
-- start and end dates of the forecast: YYYY-MM-DD
+New file format
+- `forecast_v=3__model_name=national_xg__model_version=1.0.13__start_date=2016-12-01__end_date=2022-08-08.csv.gz` was sent on 2023-10-05. 
