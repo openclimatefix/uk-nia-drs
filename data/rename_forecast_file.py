@@ -3,7 +3,7 @@ import shutil
 dir = "data"
 old_file = "formatted_forecasts_v2.csv.gz"
 
-v_id = "3"
+v_id = "4"
 model_name = "national_xg"
 model_version = "1.0.13"
 start_date = "2016-12-01"
@@ -17,5 +17,8 @@ new_file = (
     f"end_date={end_date}.csv.gz"
 )
 
+import pandas as pd
+df = pd.read_csv(f"./{dir}/{old_file}")
+df.to_csv(f"./{dir}/{new_file}", index=False)
 
-shutil.copyfile(f"./{dir}/{old_file}", f"./{dir}/{new_file}")
+

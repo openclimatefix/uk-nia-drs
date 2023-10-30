@@ -16,3 +16,4 @@ This was run using cross validation. Dates are from `2017-01-01` to `2022-01-01`
 
 New file format
 - `forecast_v=3__model_name=national_xg__model_version=1.0.13__start_date=2016-12-01__end_date=2022-08-08.csv.gz` was sent on 2023-10-05. 
+- `forecast_v=4__model_name=national_xg__model_version=1.0.13__start_date=2016-12-01__end_date=2022-08-08.csv.gz` was sent on 2023-10-05, with the correctly named file in the zip folder. 
