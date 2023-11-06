@@ -1,5 +1,5 @@
 """
-This file foremats the foreasts
+This file formats the foreasts
 
 The inputs csv file should have the following columns
 - Init Time
@@ -22,7 +22,7 @@ import plotly.graph_objs as go
 
 # load data
 print("Loading Forecast data")
-data = pd.read_csv("data/full_predictions_cross_validation_v2.csv")
+data = pd.read_csv("data/full_predictions_cross_validation_v3.csv")
 
 # join with pvlive capacity data
 print("Loading PVLive data")
@@ -82,4 +82,4 @@ data_stack["end_datetime_utc"] = data_stack["start_datetime_utc"] + pd.Timedelta
 data_stack.drop(columns=["variable"], inplace=True)
 
 print('Save to csv')
-data_stack.to_csv("data/formatted_forecasts_v2.csv.gz", index=False, compression='gzip')
+data_stack.to_csv("data/formatted_forecasts_v3.csv.gz", index=False, compression='gzip')
