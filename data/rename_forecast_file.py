@@ -3,10 +3,10 @@ import shutil
 dir = "data"
 old_file = "formatted_forecasts_v2.csv.gz"
 
-v_id = "4"
+v_id = "5"
 model_name = "national_xg"
-model_version = "1.0.13"
-start_date = "2016-12-01"
+model_version = "1.0.23"
+start_date = "2016-03-22"
 end_date = "2022-08-08"
 
 new_file = (
