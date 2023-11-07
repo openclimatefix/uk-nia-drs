@@ -19,7 +19,7 @@ New file format
 - `forecast_v=4__model_name=national_xg__model_version=1.0.13__start_date=2016-12-01__end_date=2022-08-08.csv.gz` was sent on 2023-10-05, with the correctly named file in the zip folder. 
 
 Extended forecast horizon to 40 Hours
-- `forecast_v=5__model_name=national_xg__model_version=1.0.23__start_date=2016-03-22__end_date=2022-08-08.csv.gz` was sent on 2023-11-06. Dates are from `2016-12-01 to 2022-08-08`. Fixed missing day of data on `2016-12-31`, `2017-12-31`, `2018-12-31`, `2019-12-31` and `2020-12-31`.
+- `forecast_v=5__model_name=national_xg__model_version=1.0.23__start_date=2016-12-01__end_date=2022-08-08.csv.gz` was sent on 2023-11-06. Dates are from `2016-12-01 to 2022-08-08`. Fixed missing day of data on `2016-12-31`, `2017-12-31`, `2018-12-31`, `2019-12-31` and `2020-12-31`.
 
 Of the ~100,000 forecast made there were ~100 gaps in the creation times.
 The gaps were distributed as follows:
