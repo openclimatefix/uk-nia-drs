@@ -6,7 +6,7 @@ old_file = "formatted_forecasts_v3.csv.gz"
 v_id = "5"
 model_name = "national_xg"
 model_version = "1.0.23"
-start_date = "2016-03-22"
+start_date = "2016-12-01"
 end_date = "2022-08-08"
 
 new_file = (
