@@ -1,9 +1,9 @@
 import shutil
 
 dir = "data"
-old_file = "formatted_forecasts_v3.csv.gz"
+old_file = "formatted_forecasts_v6_prob.csv.gz"
 
-v_id = "5"
+v_id = "6"
 model_name = "national_xg"
 model_version = "1.0.23"
 start_date = "2016-12-01"
