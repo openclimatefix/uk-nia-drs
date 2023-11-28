@@ -34,3 +34,6 @@ The gaps were distributed as follows:
 | 53 days              | 1              | This was on 2021-11-08                                                              |
 
 This largest gap on 2021-11-08 is due to missing NWP data.
+
+Probabilistic forecasts
+- `forecast_v=6__model_name=national_xg__model_version=1.0.23__start_date=2016-12-01__end_date=2022-08-08.csv` was sent on 2023-11-28. Dates are from `2016-12-01 to 2022-08-08`. This contains the normal, p10 and p90 generation values for the same model used in v5, with the corresponding forecasts under each column: `generation_mw`, `generation_mw_p10` and `generation_mw_p90`. The gaps in creation time remain the same as shown in the table above, for v5.

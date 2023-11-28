@@ -11,29 +11,29 @@ The output csv file will have the following columns:
 - 0 Hour Forecast
 - 1 Hour Forecast
 ....
-- 36 Hour Forecast
+- 40 Hour Forecast
 """
 
 import pandas as pd
 import os
+from tqdm import tqdm
 
 # change base_directory to reflect the location of the data
 base_directory = "./uk-pv-national-xg/results"
 final_df = pd.DataFrame()
 
+probabilistic = True
+
 # loop through the years and horizons
-for year in range(2016, 2023):
+for year in tqdm(range(2016, 2023), desc="Year"):
     year_df = pd.DataFrame()
-    print("Year:", year)
     
-    for horizon in range(41):
-        print("Horizon:", horizon)
+    for horizon in tqdm(range(41), desc="Horizon"):
         file_name = f"Backtest_test_horizon_{horizon}_year_{year}.csv"
         file_path = os.path.join(base_directory, file_name)
         
         # check if the file exists
         if os.path.exists(file_path):
-            
             df = pd.read_csv(file_path)
             
             # convert the 'Unnamed: 0' column to datetime and set it as the index then drop
@@ -46,12 +46,23 @@ for year in range(2016, 2023):
             
             # rename the 'pred' column according to the horizon
             df.rename(columns={'pred': f'{horizon} Hour Forecast'}, inplace=True)
-        
-            if horizon == 0:
-                year_df = df[[f'{horizon} Hour Forecast']]
+
+            if probabilistic:
+                df.rename(columns={'p10': f'p10 {horizon} Hour Forecast'}, inplace=True)
+                df.rename(columns={'p90': f'p90 {horizon} Hour Forecast'}, inplace=True)
+            
+                if horizon == 0:
+                    year_df = df[[f'{horizon} Hour Forecast', f'p10 {horizon} Hour Forecast', f'p90 {horizon} Hour Forecast']]
+                else:
+                    # concatenate the forecast columns to the year_df
+                    year_df = year_df.join(df[[f'{horizon} Hour Forecast', f'p10 {horizon} Hour Forecast', f'p90 {horizon} Hour Forecast']])
+            
             else:
-                # concatenate the forecast columns to the year_df
-                year_df = year_df.join(df[f'{horizon} Hour Forecast'])
+                if horizon == 0:
+                    year_df = df[[f'{horizon} Hour Forecast']]
+                else:
+                    # concatenate the forecast columns to the year_df
+                    year_df = year_df.join(df[[f'{horizon} Hour Forecast']])
 
     # concatenate the year's data to the final DataFrame
     if not year_df.empty:
@@ -65,5 +76,5 @@ print("removing nans")
 df_cleaned = final_df.dropna()
 
 print("saving to csv")
-df_cleaned.to_csv("./data/full_predictions_cross_validation_v3.csv", index=False)
+df_cleaned.to_csv("./uk-nia-drs/data/prob/full_predictions_cross_validation_v6_prob_full.csv", index=False)
 print("done")
