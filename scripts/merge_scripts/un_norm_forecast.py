@@ -2,11 +2,11 @@ import pandas as pd
 
 # load data
 print("Loading Forecast data")
-data = pd.read_csv("/home/zak/projects/DRS/data/full_predictions_cross_validation_v4_without_prob_with_30min.csv")
+data = pd.read_csv("../../data/full_predictions_cross_validation_v4_without_prob_with_30min.csv")
 
 # join with pvlive capacity data
 print("Loading PVLive data")
-pvlive = pd.read_csv("/home/zak/projects/DRS/uk-nia-drs/pvlive_2016_2022.csv")
+pvlive = pd.read_csv("../../pvlive_2016_2022.csv")
 pvlive["end_datetime_utc"] = pd.to_datetime(pvlive["end_datetime_utc"])
 
 # unnormalize data
@@ -24,4 +24,4 @@ for c in data.columns:
 # drop columns
 data.drop(columns=["installedcapacity_mwp", "capacity_mwp", "start_datetime_utc", "end_datetime_utc"], inplace=True)
 
-data.to_csv("/home/zak/projects/DRS/data/full_predictions_cross_validation_v4_without_prob_with_30min_unormalised.csv", index=False)
+data.to_csv("../../data/full_predictions_cross_validation_v4_without_prob_with_30min_unormalised.csv", index=False)

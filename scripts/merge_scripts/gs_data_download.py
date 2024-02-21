@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # Define the Google Storage path and the local path
     gs_path = "gs://solar-pv-nowcasting-data/backtest/drs_backtest/model_ensemble.nc"
     # gs_path = "gs://solar-pv-nowcasting-data/backtest/national_xg_2018_2022/full_predictions_cross_validation_v2.csv"
-    local_path = "./model_ensemble.nc"
+    local_path = "../../data/model_ensemble.nc"
 
     # Download the data
     download_from_gs(gs_path, local_path)

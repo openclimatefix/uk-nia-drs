@@ -1,6 +1,6 @@
 import pandas as pd
 
-df_xg = pd.read_csv("/home/zak/projects/DRS/data/full_predictions_cross_validation_v4_without_prob_full.csv")
+df_xg = pd.read_csv("../../data/full_predictions_cross_validation_v4_without_prob_full.csv")
 
 # Generate half-hourly forecasts by interpolating between each hourly forecast
 def generate_half_hourly_forecasts(df):
@@ -22,4 +22,4 @@ def generate_half_hourly_forecasts(df):
 
 df_xg_temp = df_xg.copy()
 df_xg_30 = generate_half_hourly_forecasts(df_xg_temp)
-df_xg_30.to_csv("/home/zak/projects/DRS/data/full_predictions_cross_validation_v4_without_prob_with_30min.csv", index=False)
+df_xg_30.to_csv("../../data/full_predictions_cross_validation_v4_without_prob_with_30min.csv", index=False)

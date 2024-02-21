@@ -22,11 +22,11 @@ import plotly.graph_objs as go
 
 # load data
 print("Loading Forecast data")
-data = pd.read_csv("/home/zak/projects/DRS/data/full_predictions_cross_validation_v4_without_prob_full.csv")
+data = pd.read_csv("../data/full_predictions_cross_validation_v4_without_prob_full.csv")
 
 # join with pvlive capacity data
 print("Loading PVLive data")
-pvlive = pd.read_csv("/home/zak/projects/DRS/uk-nia-drs/pvlive_2016_2022.csv")
+pvlive = pd.read_csv("../pvlive_2016_2022.csv")
 pvlive["end_datetime_utc"] = pd.to_datetime(pvlive["end_datetime_utc"])
 
 # unnormalize data
@@ -82,4 +82,4 @@ data_stack["start_datetime_utc"] = data_stack["end_datetime_utc"] - pd.Timedelta
 data_stack.drop(columns=["variable"], inplace=True)
 
 print('Save to csv')
-data_stack.to_csv("data/formatted_forecasts_v4.csv.gz", index=False, compression='gzip')
+data_stack.to_csv("../data/formatted_forecasts_v4.csv.gz", index=False, compression='gzip')

@@ -40,8 +40,8 @@ def blend_data(data_xg, data_pvnet, blend=True):
 
 
 # Two step merging process for the datasets
-data_xg = pd.read_csv("/home/zak/projects/DRS/data/full_predictions_cross_validation_v4_without_prob_with_30min_unormalised.csv")
-data_pvnet = pd.read_csv("/home/zak/projects/DRS/data/pvnet_predicitons_2021-2023_preformat_v2.csv")
+data_xg = pd.read_csv("../../data/full_predictions_cross_validation_v4_without_prob_with_30min_unormalised.csv")
+data_pvnet = pd.read_csv("../../data/pvnet_predicitons_2021-2023_preformat_v2.csv")
 
 merged_data = blend_data(data_xg, data_pvnet, blend=True)
-merged_data.to_csv("/home/zak/projects/DRS/data/full_pred_v6_3_xgb_pvnet_blended.csv", index=False)
+merged_data.to_csv("../../data/full_pred_v6_3_xgb_pvnet_blended.csv", index=False)

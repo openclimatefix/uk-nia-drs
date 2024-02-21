@@ -1,7 +1,7 @@
 import xarray as xr
 import pandas as pd
 
-pvnet_ds = xr.open_dataset("/home/zak/projects/DRS/data/model_ensemble.nc")
+pvnet_ds = xr.open_dataset("../../data/model_ensemble.nc")
 
 # just want to keep the gsp id of 0 and just the expected generation
 filtered_pvnet_ds = pvnet_ds.sel(gsp_id=0, output_label=[b'forecast_mw'])
@@ -23,4 +23,4 @@ pvnet_pivot_df.columns = [f'{int(col)} Hour Forecast' if col.is_integer() else f
 pvnet_pivot_df.reset_index(inplace=True)
 pvnet_pivot_df.rename(columns={'forecast_init_time': 'Init Time'}, inplace=True)
 
-pvnet_pivot_df.to_csv("/home/zak/projects/DRS/data/pvnet_predicitons_2021-2023_preformat_v2.csv", index=False)
+pvnet_pivot_df.to_csv("../../data/pvnet_predicitons_2021-2023_preformat_v2.csv", index=False)

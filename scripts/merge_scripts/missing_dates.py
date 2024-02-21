@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('/home/zak/projects/DRS/data/forecast_v=7__model_name=national_xg_and_pv_net__model_version=2.0.0__start_date=2016-12-01__end_date=2022-08-08.csv.gz')
+df = pd.read_csv('../../data/forecast_v=7__model_name=national_xg_and_pv_net__model_version=2.0.0__start_date=2016-12-01__end_date=2022-08-08.csv.gz')
 
 # get unique init times
 init_times = pd.DataFrame(df['forecasting_creation_datetime_utc'].unique(), columns=['forecasting_creation_datetime_utc'])
@@ -25,5 +25,5 @@ print("Dates with gaps:")
 print(gaps[['forecasting_creation_datetime_utc', 'diff']])
 
 # Save the gaps information to a CSV file
-gaps.to_csv('/home/zak/projects/DRS/data/forecast_gaps_v7_2.csv', index=False)
-print("Gaps information saved to /home/zak/projects/DRS/data/forecast_gaps.csv")
+gaps.to_csv('../../data/forecast_gaps_v7_2.csv', index=False)
+print("Gaps information saved")

@@ -23,11 +23,11 @@ import plotly.graph_objs as go
 
 # load data
 print("Loading Forecast data")
-data = pd.read_csv("./data/prob/full_predictions_cross_validation_v6_prob_full.csv")
+data = pd.read_csv("../data/full_predictions_cross_validation_v6_prob_full.csv")
 
 # join with pvlive capacity data
 print("Loading PVLive data")
-pvlive = pd.read_csv("./uk-nia-drs/pvlive_2016_2022.csv")
+pvlive = pd.read_csv("../pvlive_2016_2022.csv")
 pvlive["end_datetime_utc"] = pd.to_datetime(pvlive["end_datetime_utc"])
 
 # unnormalize data
@@ -100,4 +100,4 @@ print('Save to csv')
 
 print(pivot_df.head())
 
-pivot_df.to_csv("./data/formatted_forecasts_v6_prob.csv.gz", index=False, compression='gzip')
+pivot_df.to_csv("../data/formatted_forecasts_v6_prob.csv.gz", index=False, compression='gzip')
