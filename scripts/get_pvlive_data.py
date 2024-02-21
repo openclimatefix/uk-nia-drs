@@ -26,17 +26,25 @@ data = pvl.between(
 )
 
 # order data
-data.sort_values('datetime_gmt',inplace=True)
+data.sort_values("datetime_gmt", inplace=True)
 
 # rename columns
-data.rename(columns={'datetime_gmt': 'end_datetime_utc'}, inplace=True)
-data['start_datetime_utc'] = data['end_datetime_utc'] - pd.Timedelta(minutes=30)
+data.rename(columns={"datetime_gmt": "end_datetime_utc"}, inplace=True)
+data["start_datetime_utc"] = data["end_datetime_utc"] - pd.Timedelta(minutes=30)
 
 # drop column
-data.drop(columns=['gsp_id'], inplace=True)
+data.drop(columns=["gsp_id"], inplace=True)
 
 # order the columns
-data = data[['start_datetime_utc', 'end_datetime_utc', 'generation_mw', 'capacity_mwp', 'installedcapacity_mwp']]
+data = data[
+    [
+        "start_datetime_utc",
+        "end_datetime_utc",
+        "generation_mw",
+        "capacity_mwp",
+        "installedcapacity_mwp",
+    ]
+]
 
 # save to csv
-data.to_csv('pvlive_2016_2022.csv', index=False)
+data.to_csv("pvlive_2016_2022.csv", index=False)

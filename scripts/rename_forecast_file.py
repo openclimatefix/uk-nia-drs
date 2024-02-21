@@ -6,7 +6,7 @@ old_file = "full_pred_v5_2_xgb_pvnet_merge_formated_fix_ts.csv.gz"
 
 v_id = "7"
 model_name_1 = "national_xg"
-model_name_2 = 'pv_net'
+model_name_2 = "pv_net"
 model_version_1 = "1.0.23"
 model_version_2 = "2.6.10"
 start_date = "2016-12-01"
