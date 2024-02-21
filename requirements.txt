@@ -1,2 +1,4 @@
 pvlive-api
 plotly
+pytest
+pandas

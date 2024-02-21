@@ -6,7 +6,7 @@ The inputs csv file should have the following columns
 - 0 Hour Forecast
 - 1 Hour Forecast
 ....
-- 36 Hour Forecast
+- 40 Hour Forecast
 The values are normalized by pvlive installed capacity mw, so need to un normalize thes
 
 
@@ -22,11 +22,11 @@ import plotly.graph_objs as go
 
 # load data
 print("Loading Forecast data")
-data = pd.read_csv("data/full_predictions_cross_validation_v3.csv")
+data = pd.read_csv("/home/zak/projects/DRS/data/full_predictions_cross_validation_v4_without_prob_full.csv")
 
 # join with pvlive capacity data
 print("Loading PVLive data")
-pvlive = pd.read_csv("pvlive_2016_2022.csv")
+pvlive = pd.read_csv("/home/zak/projects/DRS/uk-nia-drs/pvlive_2016_2022.csv")
 pvlive["end_datetime_utc"] = pd.to_datetime(pvlive["end_datetime_utc"])
 
 # unnormalize data
@@ -73,13 +73,13 @@ data_stack.rename(
     inplace=True,
 )
 
-# create start ane end time
-data_stack["start_datetime_utc"] = data_stack[
+# create start and end time
+data_stack["end_datetime_utc"] = data_stack[
     "forecasting_creation_datetime_utc"
 ] + pd.to_timedelta(data_stack["variable"], "h")
 
-data_stack["end_datetime_utc"] = data_stack["start_datetime_utc"] + pd.Timedelta(minutes=30)
+data_stack["start_datetime_utc"] = data_stack["end_datetime_utc"] - pd.Timedelta(minutes=30)
 data_stack.drop(columns=["variable"], inplace=True)
 
 print('Save to csv')
-data_stack.to_csv("data/formatted_forecasts_v3.csv.gz", index=False, compression='gzip')
+data_stack.to_csv("data/formatted_forecasts_v4.csv.gz", index=False, compression='gzip')
