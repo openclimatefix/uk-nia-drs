@@ -20,7 +20,8 @@ import plotly.graph_objs as go
 
 # load data
 print("Loading Forecast data")
-data = pd.read_csv("/home/zak/projects/DRS/data/full_pred_v5_3_xgb_pvnet_merge.csv")
+data = pd.read_csv("/home/zak/projects/DRS/data/full_pred_v6_2_xgb_pvnet_blended.csv")
+
 
 # drop previously generated capacity that i carried over...
 data.drop(columns=["generation_mw"], inplace=True)
@@ -73,4 +74,4 @@ data_stack["start_datetime_utc"] = data_stack["end_datetime_utc"] - pd.Timedelta
 data_stack.drop(columns=["variable"], inplace=True)
 
 print('Save to csv')
-data_stack.to_csv("/home/zak/projects/DRS/data/full_pred_v5_3_xgb_pvnet_merge_formated_fix_ts_blend.csv.gz", index=False, compression='gzip')
+data_stack.to_csv("/home/zak/projects/DRS/data/full_pred_v6_2_xgb_pvnet_blend.csv.gz", index=False, compression='gzip')
