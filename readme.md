@@ -22,7 +22,7 @@ First OCF will provide PVlive data, and secondly we will provide OCF Forecasts
 
 ## file format
 
-The file format is a csv file: 
+The file format for single model files is a csv file: 
 `forecast_v={v_id}__model_name={model_name}__model_version={model_version}__start_date={start_date}__end_date={end_date}.csv`
 
 where 
@@ -30,3 +30,6 @@ where
 - model name: string, the ml model used e.e.g national_xg
 - model version: string, the ml model version e.g. 0.0.1
 - start and end dates of the forecast: YYYY-MM-DD
+
+For files that utilise multiple models, the following format will be used:
+`forecast_v={v_id}__model_name_1={model_name_1}__model_version_1={model_version_1}__model_name_2={model_name_2}__model_version_2={model_version_2}__start_date={start_date}__end_date={end_date}.csv.gz`
