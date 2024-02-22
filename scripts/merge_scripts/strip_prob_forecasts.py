@@ -1,3 +1,7 @@
+"""
+Simple script to strip the probability forecasts from the XGBoost predictions.
+"""
+
 import pandas as pd
 
 xgb_df = pd.read_csv("../../data/full_predictions_cross_validation_v4_prob_full.csv")

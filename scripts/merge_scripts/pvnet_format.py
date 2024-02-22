@@ -1,3 +1,16 @@
+"""
+This script processes the output from the PVNet model to format it for merging with XGBoost predictions. It performs the following steps:
+
+1. Opens the PVNet dataset using xarray.
+2. Filters the dataset to keep only the GSP ID of 0 and the expected generation output.
+3. Converts the filtered dataset to a pandas DataFrame for easier manipulation.
+4. Pivots the DataFrame to have forecast initialization times as rows and forecast horizons as columns.
+5. Renames the columns to match the format used in the XGBoost DataFrame, which uses "Hour Forecast" naming.
+6. Adjusts the column names to ensure whole hour values are integers instead of having a decimal place.
+7. Resets the index to bring the forecast initialization time back as a column and renames it to "Init Time".
+8. Saves the formatted DataFrame to a CSV file for further processing.
+"""
+
 import xarray as xr
 import pandas as pd
 

@@ -1,3 +1,13 @@
+"""
+This script analyzes forecasting data to identify and report any missing dates or gaps. It includes functionality to:
+
+- Load forecasting data from a CSV file.
+- Determine the time intervals between forecast entries.
+- Identify any intervals that are larger than expected.
+- Summarize and print the findings.
+- Save the details of these gaps for further examination.
+"""
+
 import pandas as pd
 
 df = pd.read_csv(

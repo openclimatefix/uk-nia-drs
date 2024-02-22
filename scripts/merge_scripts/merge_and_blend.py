@@ -1,3 +1,25 @@
+"""
+This script is designed to merge and blend forecast data from two different models, XGBoost (XG) and PVNet, 
+to create a combined forecast dataset. The blending process is optional and can be controlled through a parameter. 
+The script performs several key operations:
+
+- It first converts the 'Init Time' column in both datasets to datetime format, ensuring that the data is aligned 
+  on the same temporal scale for accurate merging.
+- The data from both models is then merged based on the 'Init Time' column. This operation combines the forecasts 
+  from both models into a single dataset, with PVNet's forecasts being appended as new columns with a suffix to 
+  distinguish them from XGBoost's forecasts.
+- If blending is enabled, the script calculates blended forecasts for specific forecast horizons based on predefined 
+  blending ratios. These ratios determine the weight of each model's forecast in the final blended output.
+- For columns present in both datasets (excluding 'Init Time'), the script either blends the forecasts (if blending 
+  is enabled and the column is eligible for blending) or replaces XGBoost's forecasts with PVNet's forecasts.
+- The combined dataset is then filtered to include only data points starting from January 1, 2020, up to August 8, 2022.
+- A copy of the combined dataset is created to adjust the '0 Hour Forecast' by using PVNet's '0.5 Hour Forecast' for 
+  the next initiation time, compensating for XGBoost's lack of a '0 Hour Forecast'.
+- The script also prepares a separate dataset containing XGBoost's forecasts prior to January 1, 2020.
+- Finally, the pre-2020 XGBoost dataset and the adjusted combined dataset are concatenated to form the final merged 
+  and blended dataset, which is then returned.
+"""
+
 import pandas as pd
 
 

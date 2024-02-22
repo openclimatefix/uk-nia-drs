@@ -1,3 +1,9 @@
+"""
+This script is designed to facilitate the downloading of files from Google Cloud Storage (GS) to a local directory. 
+It defines a single function, download_from_gs, which takes a GS path and a local path as arguments. 
+The function attempts to use the gsutil command-line tool to copy a file from the specified GS path to the local path. 
+"""
+
 import subprocess
 
 

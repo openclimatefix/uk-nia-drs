@@ -1,3 +1,10 @@
+"""
+This script is designed to interpolate hourly forecast data to generate half-hourly forecasts. 
+It reads a CSV file containing hourly forecast data, interpolates to create half-hourly forecasts, 
+and saves the resulting data to a new CSV file. The interpolation is a simple average between 
+consecutive hourly forecasts.
+"""
+
 import pandas as pd
 
 df_xg = pd.read_csv(

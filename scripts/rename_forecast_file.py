@@ -1,3 +1,11 @@
+"""
+This script renames a forecast file based on specific model details and date range.
+
+It takes an existing forecast file, reads it into a pandas DataFrame, and then writes it out to a new file 
+with a name that reflects the version ID, model names, model versions, and the start and end dates of the forecast period. 
+This helps in organizing and identifying forecast files more easily.
+"""
+
 import shutil
 import pandas as pd
 
