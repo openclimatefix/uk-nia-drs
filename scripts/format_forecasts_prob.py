@@ -27,7 +27,7 @@ data = pd.read_csv("../data/full_predictions_cross_validation_v6_prob_full.csv")
 
 # join with pvlive capacity data
 print("Loading PVLive data")
-pvlive = pd.read_csv("../pvlive_2016_2022.csv")
+pvlive = pd.read_csv("../pvlive_2016_2023.csv")
 pvlive["end_datetime_utc"] = pd.to_datetime(pvlive["end_datetime_utc"])
 
 # unnormalize data
