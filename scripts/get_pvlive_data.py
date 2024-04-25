@@ -20,7 +20,7 @@ pvl = PVLive()
 # get data, 1 year takes about 5 seconds
 data = pvl.between(
     start=datetime(2016, 12, 1, tzinfo=pytz.utc),
-    end=datetime(2023, 1, 1, tzinfo=pytz.utc),
+    end=datetime(2024, 1, 1, tzinfo=pytz.utc),
     dataframe=True,
     extra_fields="installedcapacity_mwp,capacity_mwp",
 )
@@ -47,4 +47,4 @@ data = data[
 ]
 
 # save to csv
-data.to_csv("pvlive_2016_2022.csv", index=False)
+data.to_csv("pvlive_2016_2023.csv", index=False)

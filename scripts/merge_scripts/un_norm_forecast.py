@@ -16,12 +16,12 @@ import pandas as pd
 # load data
 print("Loading Forecast data")
 data = pd.read_csv(
-    "../../data/full_predictions_cross_validation_v4_without_prob_with_30min.csv"
+    "../../data/full_predictions_cross_validation_v8_(from_v4)_prob_full_formated_xg.csv"
 )
 
 # join with pvlive capacity data
 print("Loading PVLive data")
-pvlive = pd.read_csv("../../pvlive_2016_2022.csv")
+pvlive = pd.read_csv("../../pvlive_2016_2023.csv")
 pvlive["end_datetime_utc"] = pd.to_datetime(pvlive["end_datetime_utc"])
 
 # unnormalize data
@@ -48,6 +48,6 @@ data.drop(
 )
 
 data.to_csv(
-    "../../data/full_predictions_cross_validation_v4_without_prob_with_30min_unormalised.csv",
+    "../../data/full_predictions_cross_validation_v8_(from_v4)_prob_full_formated_xg_unnorm.csv",
     index=False,
 )

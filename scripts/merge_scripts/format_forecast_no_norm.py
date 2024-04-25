@@ -28,7 +28,7 @@ data.drop(columns=["generation_mw"], inplace=True)
 
 # join with pvlive capacity data
 print("Loading PVLive data")
-pvlive = pd.read_csv("/home/zak/projects/DRS/uk-nia-drs/pvlive_2016_2022.csv")
+pvlive = pd.read_csv("/home/zak/projects/DRS/uk-nia-drs/pvlive_2016_2023.csv")
 pvlive["end_datetime_utc"] = pd.to_datetime(pvlive["end_datetime_utc"])
 
 data["Init Time"] = pd.to_datetime(data["Init Time"])
