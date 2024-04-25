@@ -11,7 +11,7 @@ This script analyzes forecasting data to identify and report any missing dates o
 import pandas as pd
 
 df = pd.read_csv(
-    "../../data/forecast_v=7__model_name=national_xg_and_pv_net__model_version=2.0.0__start_date=2016-12-01__end_date=2022-08-08.csv.gz"
+    "../../data/forecast_v=8__model_name_1=national_xg__model_version_1=1.0.23__model_name_2=pv_net__model_version_2=3.0.1__start_date=2016-12-01__end_date=2022-08-08.csv.gz"
 )
 
 # get unique init times
